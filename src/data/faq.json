@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What do I need to encode a message using Steganography?",
+    "answer": "To encode a message, you need to upload a media file (such as an image or audio file) and enter the secret text you want to hide. The system will then embed the text into the media file securely."
+  },
+  {
+    "question": "How can I decrypt a hidden message from a media file?",
+    "answer": "To decrypt a hidden message, upload the steganographed media file and use the decoding option. The system will extract and display the hidden text if the file contains any embedded information."
+  },
+  {
+    "question": "What file formats are supported for steganography?",
+    "answer": "Our system supports common image formats like PNG and JPG, as well as audio formats like WAV for encoding and decoding hidden messages."
+  },
+  {
+    "question": "Is there a limit to the text size I can hide in a file?",
+    "answer": "Yes, the amount of text you can hide depends on the size and type of the media file. Larger files can store more data without noticeable changes."
+  },
+  {
+    "question": "Is steganography secure from detection?",
+    "answer": "Steganography helps in hiding information, but for better security, it is recommended to combine it with encryption techniques to enhance protection against detection."
+  },
+  {
+    "question": "Can I extract hidden messages from any media file?",
+    "answer": "No, only media files that have been encoded using our steganography tool can be decoded. If a file does not contain hidden data, no message will be extracted."
+  }
+
+]

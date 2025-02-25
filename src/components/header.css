@@ -1,0 +1,36 @@
+.border-button-grey {
+    position: relative;
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(#090a0c, #090a0c) padding-box,
+                linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0.15)) border-box;
+    border: 1px solid transparent;
+    color: white;
+    overflow: hidden;
+}
+
+/* Hover Effect: Slight border glow and shadow */
+.border-button-grey:hover {
+    border-color: rgba(255, 255, 255, 0.5); /* Slight white border */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    transform: scale(1.05); /* Slightly increase size */
+}
+
+
+/* for Mobiel -> */
+.mobile-nav-link {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+}
+
+.mobile-nav-link:hover {
+    text-decoration: underline;
+}
+
