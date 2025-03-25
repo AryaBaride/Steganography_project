@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-// import ProtectedRoute from "./components/protected-route";     
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";    
 import AppLayout from "./layouts/app-layout";
 import LandingPage from "./pages/landing";
 import "./app.css";
@@ -11,8 +10,7 @@ import Encode from "@/pages/encode.jsx";
 import Decode from "@/pages/decode.jsx";
 import AboutUs from "./pages/about";
 import Contact from "@/pages/contact"
-
-
+import PrivacyPolicy from "@/pages/privacy.jsx";
 
 
 const App = () => {
@@ -50,12 +48,20 @@ const App = () => {
           path:"/contact",
           element:<Contact/>
           
-        }
-        
-        
+        },
+      
+        {
+            path: "/",
+            
+            children: [
+              { index: true, element: <LandingPage /> },
+              { path: "/privacy", element: <PrivacyPolicy /> }, // Add this route
+            ],
+          },
       ],
     },
   ]);
+  
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

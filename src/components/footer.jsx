@@ -8,17 +8,14 @@ const Footer = () => {
         <footer className="bg-gray-900 text-white py-6">
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
                 
-                <div>
-                    <h2 className="text-xl font-bold">Steganography Tool</h2>
-                    <p className="text-gray-400 mt-2">Securely hide and extract messages from media files.</p>
-                </div>
+
 
                 {/* Privacy & Security Message */}
                 <div className="flex flex-col justify-center">
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-100 text-sm">
                         Empowering secure communication &mdash; Your privacy, our priority.
                     </p>
-                    <p className="text-gray-400 text-sm mt-4">
+                    <p className="text-gray-100 text-sm mt-4">
                         Confidentiality in every bit.
                     </p>
                 </div>
@@ -28,7 +25,8 @@ const Footer = () => {
                     <ul className="mt-2 space-y-2">
                         <li><NavLink to="/about" className="hover:text-blue-400">About Us</NavLink></li>
                         <li><NavLink to="/contact" className="hover:text-blue-400">Contact</NavLink></li>
-                        <li><NavLink to="/privacy-policy" className="hover:text-blue-400">Privacy Policy</NavLink></li>
+                        <li><NavLink to="/privacy" className="hover:text-blue-400">Privacy Policy</NavLink></li>
+
                     </ul>
                 </div>
 

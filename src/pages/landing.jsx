@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+
 import React from "react";
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import FAQSection from "@/components/ui/FAQSection"; // Import FAQ component
+
+
 import {
   ShieldCheck,
   Lock,
@@ -13,7 +12,11 @@ import {
   Globe,
   KeySquare,
   FileLock,
+  SquareChartGantt,
+  Camera,
+  FileAudio2,
 } from "lucide-react";
+
 import faq from "@/data/faq.json";
 import {
   Accordion,
@@ -21,6 +24,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+
 
 const LandingPage = () => {
   return (
@@ -33,24 +38,69 @@ const LandingPage = () => {
           Protect your data with next-gen steganography tech.
         </p>
       </section>
-      <div className="flex items-center justify-center gap-x-6">
-        <NavLink to="/encode">
-          <Button variant="blue" size="xl">
-            Encode
-          </Button>
-        </NavLink>
-        <NavLink to="/decode">
-          <Button size="xl" variant="destructive">
-            Decode
-          </Button>
-        </NavLink>
-      </div>
+
+
+
+
+    
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  {[
+    {
+      path: "/text-image",
+      icon: <SquareChartGantt className="w-12 h-12 text-blue-500" />,
+      title: "Text to Image",
+      text: "Convert hidden text into an image by embedding data within image pixels using steganography.",
+    },
+    {
+      path: "/image-image",
+      icon: <Camera className="w-12 h-12 text-green-500" />,
+      title: "Image to Image",
+      text: "Hide one image inside another, making the embedded image undetectable while preserving visual integrity.",
+    },
+    {
+      path: "/text-audio",
+      icon: <FileAudio2 className="w-12 h-12 text-red-500" />,
+      title: "Text to Audio",
+      text: "Conceal secret messages within an audio file by modifying its sound waves, ensuring discreet communication.",
+    },
+  ].map((card, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      className="text-center" // Removed outer box styles
+    >
+      <NavLink to={card.path} className="flex flex-col items-center">
+        {/* Boxed Icon */}
+        <motion.div
+          className="flex items-center justify-center w-16 h-16 bg-gray-700 rounded-xl shadow-md"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+        >
+          {card.icon}
+        </motion.div>
+
+        <h3 className="text-2xl font-bold mt-4 text-white">{card.title}</h3>
+        <p className="text-gray-300 mt-2 max-w-xs">{card.text}</p>
+      </NavLink>
+    </motion.div>
+  ))}
+</div>
+
+
+
+
 
       {/* Information Section -> */}
       <section className="text-white py-14 px-6 mb-0 pb-0">
         <h2 className="text-3xl font-bold text-center mb-8">
           Why Steganography?
         </h2>
+
+        
+
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
@@ -69,21 +119,7 @@ const LandingPage = () => {
               title: "Why Use It?",
               text: "Unlike encryption, steganography makes secret communication undetectable, adding an extra security layer.",
             },
-            {
-              icon: <KeySquare className="w-12 h-12 mx-auto text-yellow-500" />,
-              title: "Steganography vs Encryption",
-              text: "Encryption scrambles data, while steganography hides it inside media files.",
-            },
-            {
-              icon: <Globe className="w-12 h-12 mx-auto text-purple-500" />,
-              title: "Real-World Uses",
-              text: "Used in watermarking, digital rights protection, and secure communication.",
-            },
-            {
-              icon: <FileLock className="w-12 h-12 mx-auto text-pink-500" />,
-              title: "Future of Steganography",
-              text: "AI-driven steganography enhances security, making hidden communication more sophisticated.",
-            },
+  
           ].map((card, index) => (
             <div
               key={index}
@@ -97,17 +133,11 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <div className="space-y-2" id = "faqs">
-        <h2 className="text-3xl font-bold text-left">FAQs</h2>
-        <Accordion type="single" collapsible>
-          {faq.map((current, index) => (
-            <AccordionItem key={index} value={`item-${index + 1}`}>
-              <AccordionTrigger>{current.question}</AccordionTrigger>
-              <AccordionContent>{current.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+
+
+
+
+      <FAQSection />
     </main>
   );
 };

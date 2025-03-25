@@ -2,51 +2,56 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      {/* Page Title */}
-      <h1 className="text-3xl font-bold text-center mb-6">About Us</h1>
+    <section className="w-full flex flex-col md:flex-row items-center justify-center px-8 md:px-20 py-16 bg-gray-900">
+      
+      {/* Left Side - Image */}
+      <div className="md:w-1/2 w-full flex justify-center">
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483604-2912020.png" // Replace with actual image URL
+          className="rounded-lg shadow-2xl w-full max-w-lg" // Increased image size
+        />
+      </div>
 
-      {/* Intro Section */}
-      <p className="text-gray-600 text-center mb-8">
-        Welcome to <span className="font-semibold">Steganography Tool</span>, your trusted platform for securely encoding and decoding messages in media files. Our mission is to provide an intuitive and secure way to protect sensitive information using cutting-edge steganography techniques.
-      </p>
-
-      {/* Our Mission */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">🔍 Our Mission</h2>
-        <p className="text-gray-600">
-          We believe in digital privacy and secure communication. Our goal is to provide a seamless tool that allows users to hide messages within images and audio files while ensuring top-tier encryption.
+      {/* Right Side - About Us Content */}
+      <div className="md:w-1/2 w-full mt-8 md:mt-0 md:pl-16">
+        <h2 className="text-4xl font-extrabold text-white">Who Are We?</h2>
+        <p className="text-gray-300 text-lg mt-6 leading-relaxed">
+          We help people to build incredible brands and superior products. Our
+          perspective is to furnish outstanding captivating services.
         </p>
-      </div>
-
-      {/* What We Offer */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">🚀 What We Offer</h2>
-        <ul className="list-disc list-inside text-gray-600">
-          <li>Secure and reliable **image & audio steganography**</li>
-          <li>User-friendly interface with quick encoding/decoding</li>
-          <li>End-to-end encryption for data protection</li>
-          <li>Open-source and continuously improving features</li>
-        </ul>
-      </div>
-
-      {/* Our Vision */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">🌍 Our Vision</h2>
-        <p className="text-gray-600">
-          We envision a future where digital privacy is easily accessible to everyone. By using **steganography**, we empower individuals to communicate securely without compromising usability.
+        <p className="text-gray-300 text-lg mt-4 leading-relaxed">
+          Nullam gravida orci ac luctus molestie. Fusce finibus congue erat, non
+          aliquam magna tincidunt at. Aenean lacinia arcu ex, sed pharetra nibh
+          porta a. Curabitur vel consequat nibh, ac interdum nisl.
         </p>
-      </div>
 
-      {/* Contact Info */}
-      <div className="text-center mt-10">
-        <h2 className="text-2xl font-semibold mb-2">📞 Get in Touch</h2>
-        <p className="text-gray-600">
-          Have questions or feedback? Reach out to us at{" "}
-          <span className="font-medium">support@example.com</span>.
-        </p>
+        {/* Features Section */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Versatile Brand */}
+          <div className="flex items-start space-x-4">
+            <span className="text-blue-400 text-3xl">⚙️</span>
+            <div>
+              <h3 className="text-xl font-semibold text-white">Versatile Brand</h3>
+              <p className="text-gray-300 text-base">
+                We are crafting a digital method that subsists life across all mediums.
+              </p>
+            </div>
+          </div>
+
+          {/* Digital Agency */}
+          <div className="flex items-start space-x-4">
+            <span className="text-blue-400 text-3xl">🔥</span>
+            <div>
+              <h3 className="text-xl font-semibold text-white">Digital Agency</h3>
+              <p className="text-gray-300 text-base">
+                We believe in innovation by integrating primary with elaborate ideas.
+              </p>
+            </div>
+          </div>
+        </div>
+        
       </div>
-    </div>
+    </section>
   );
 };
 

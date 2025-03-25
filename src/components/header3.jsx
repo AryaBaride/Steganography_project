@@ -32,54 +32,56 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="py-4 flex justify-between items-center">
-        <NavLink>
-          <img src="./logo2.png" className="h-20"></img>
-        </NavLink>
+ <nav className="flex items-center justify-start space-x-8 px-6 py-4">
+  {/* Logo */}
+  <NavLink>
+    <img src="./logo2.png" className="h-20" alt="Logo" />
+  </NavLink>
 
-        <NavLink
-          to="/"
-          className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/about"
-          className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
-        >
-          About Us
-        </NavLink>
-        <NavLink
-          to="/#faqs"
-          className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
-        >
-          FAQs
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
-        >
-          Contact
-        </NavLink>
+  {/* Navbar Links - Adjusted spacing */}
+  <div className="flex items-center space-x-5">
+    <NavLink
+      to="/"
+      className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+    >
+      Home
+    </NavLink>
+    <NavLink
+      to="/about"
+      className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+    >
+      About Us
+    </NavLink>
+    <NavLink
+      to="/#faqs"
+      className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+    >
+      FAQs
+    </NavLink>
+    <NavLink
+      to="/contact"
+      className="relative text-white hover:text-gray-400 transition duration-300 after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+    >
+      Contact
+    </NavLink>
+  </div>
 
-        <SignedOut>
-          <Button
-            onClick={() => {
-              setShowSignIn(true);
-            }}
-            variant="outline"
-          >
-            Login
-          </Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton
-            appearance={{
-              elements: { avatarBox: "w-10 h-10" },
-            }}
-          />
-        </SignedIn>
-      </nav>
+  {/* Authentication Buttons */}
+  <div className="flex items-center space-x-3">
+    <SignedOut>
+      <Button
+        onClick={() => setShowSignIn(true)}
+        variant="outline"
+      >
+        Login
+      </Button>
+    </SignedOut>
+    <SignedIn>
+      <UserButton appearance={{ elements: { avatarBox: "w-10 h-10" } }} />
+    </SignedIn>
+  </div>
+</nav>
+
 
       {showSignIn && (
         <div
