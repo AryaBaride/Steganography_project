@@ -17,13 +17,6 @@ import {
   FileAudio2,
 } from "lucide-react";
 
-import faq from "@/data/faq.json";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 
 
