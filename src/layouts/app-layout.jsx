@@ -2,7 +2,7 @@ import React from 'react'
 import {Outlet} from "react-router-dom"
 import Header from "@/components/header3"
 import Footer from "@/components/footer"
-import AboutUs from '@/pages/about'
+
 
 const AppLayout= () => {
   return (

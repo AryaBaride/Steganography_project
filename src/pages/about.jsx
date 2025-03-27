@@ -16,13 +16,12 @@ const AboutUs = () => {
       <div className="md:w-1/2 w-full mt-8 md:mt-0 md:pl-16">
         <h2 className="text-4xl font-extrabold text-white">Who Are We?</h2>
         <p className="text-gray-300 text-lg mt-6 leading-relaxed">
-          We help people to build incredible brands and superior products. Our
-          perspective is to furnish outstanding captivating services.
+        We specialize in developing cutting-edge steganographic techniques to embed secret messages within images, audio, or text files while maintaining their original appearance. 
+        
         </p>
         <p className="text-gray-300 text-lg mt-4 leading-relaxed">
-          Nullam gravida orci ac luctus molestie. Fusce finibus congue erat, non
-          aliquam magna tincidunt at. Aenean lacinia arcu ex, sed pharetra nibh
-          porta a. Curabitur vel consequat nibh, ac interdum nisl.
+        Our mission is to provide a secure and innovative way to 
+        conceal information within digital media, ensuring privacy and confidentiality in data exchange.
         </p>
 
         {/* Features Section */}
@@ -31,9 +30,9 @@ const AboutUs = () => {
           <div className="flex items-start space-x-4">
             <span className="text-blue-400 text-3xl">⚙️</span>
             <div>
-              <h3 className="text-xl font-semibold text-white">Versatile Brand</h3>
+              <h3 className="text-xl font-semibold text-white">Enhanced Security</h3>
               <p className="text-gray-300 text-base">
-                We are crafting a digital method that subsists life across all mediums.
+                 Prevents suspicion by making messages invisible.
               </p>
             </div>
           </div>
@@ -42,9 +41,9 @@ const AboutUs = () => {
           <div className="flex items-start space-x-4">
             <span className="text-blue-400 text-3xl">🔥</span>
             <div>
-              <h3 className="text-xl font-semibold text-white">Digital Agency</h3>
+              <h3 className="text-xl font-semibold text-white">Privacy Protection</h3>
               <p className="text-gray-300 text-base">
-                We believe in innovation by integrating primary with elaborate ideas.
+              Ideal for secure messaging and preventing unauthorized access.
               </p>
             </div>
           </div>

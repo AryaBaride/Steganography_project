@@ -1,17 +1,18 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import FAQSection from "@/components/ui/FAQSection"; // Import FAQ component
+import { useUser } from "@clerk/clerk-react"; // Use Clerk authentication
+
+
+
+
 
 
 import {
   ShieldCheck,
   Lock,
   EyeOff,
-  Globe,
-  KeySquare,
-  FileLock,
   SquareChartGantt,
   Camera,
   FileAudio2,
@@ -20,11 +21,24 @@ import {
 
 
 
+
+
 const LandingPage = () => {
+  const { isSignedIn } = useUser(); // Clerk Authentication check
+  const navigate = useNavigate();
+
+  const handleAuthCheck = (path) => {
+    if (!isSignedIn) {
+      navigate("/sign-in"); // Redirect to sign-in page if not authenticated
+    } else {
+      navigate(path); // Navigate to the feature
+    }
+  };
+
   return (
     <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20">
       <section className="text-center">
-        <h1 className="flex flex-col items-center justify-center gradient-title text-4xl font-extrabold lg:text-6xl sm:text-4xl  tracking-tighter py-4">
+        <h1 className="flex flex-col items-center justify-center gradient-title text-4xl font-extrabold lg:text-6xl sm:text-4xl tracking-tighter py-4">
           "Secure Your Secrets with Cutting-Edge Steganography!"
         </h1>
         <p className="text-gray-300 sm:mt-4 text-xs sm:text-xl">
@@ -35,9 +49,10 @@ const LandingPage = () => {
 
 
 
-    
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+      {/* Features Section */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
   {[
     {
       path: "/text-image",
@@ -63,21 +78,41 @@ const LandingPage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
-      className="text-center" // Removed outer box styles
+      className="text-center" // No outer box
     >
-      <NavLink to={card.path} className="flex flex-col items-center">
-        {/* Boxed Icon */}
-        <motion.div
-          className="flex items-center justify-center w-16 h-16 bg-gray-700 rounded-xl shadow-md"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-        >
-          {card.icon}
-        </motion.div>
+      {isSignedIn ? (
+        <NavLink to={card.path} className="flex flex-col items-center">
+          {/* Boxed Icon */}
+          <motion.div
+            className="flex items-center justify-center w-16 h-16 bg-gray-700 rounded-xl shadow-md"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {card.icon}
+          </motion.div>
+        </NavLink>
+      ) : (
+        <div className="flex flex-col items-center">
+          {/* Boxed Icon */}
+          <motion.div
+            className="flex items-center justify-center w-16 h-16 bg-gray-700 rounded-xl shadow-md"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {card.icon}
+          </motion.div>
 
-        <h3 className="text-2xl font-bold mt-4 text-white">{card.title}</h3>
-        <p className="text-gray-300 mt-2 max-w-xs">{card.text}</p>
-      </NavLink>
+          <h3 className="text-2xl font-bold mt-4 text-white">
+            {card.title}
+          </h3>
+          <p className="text-gray-300 mt-2 max-w-xs">{card.text}</p>
+
+          <button
+            onClick={() => handleAuthCheck(card.path)}
+            className="mt-4 text-red-400 text-sm"
+          ></button>
+        </div>
+      )}
     </motion.div>
   ))}
 </div>
@@ -86,14 +121,9 @@ const LandingPage = () => {
 
 
 
-      {/* Information Section -> */}
+      {/* Information Section */}
       <section className="text-white py-14 px-6 mb-0 pb-0">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          Why Steganography?
-        </h2>
-
-        
-
+        <h2 className="text-3xl font-bold text-center mb-8">Why Steganography?</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
@@ -112,7 +142,6 @@ const LandingPage = () => {
               title: "Why Use It?",
               text: "Unlike encryption, steganography makes secret communication undetectable, adding an extra security layer.",
             },
-  
           ].map((card, index) => (
             <div
               key={index}
@@ -125,10 +154,6 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
-
-
-
-
 
       <FAQSection />
     </main>

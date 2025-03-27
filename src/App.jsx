@@ -10,6 +10,8 @@ import Decode from "@/pages/decode.jsx";
 import AboutUs from "./pages/about";
 import Contact from "@/pages/contact"
 import PrivacyPolicy from "@/pages/privacy.jsx";
+ 
+
 
 
 const App = () => {
